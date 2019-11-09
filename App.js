@@ -1,72 +1,31 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-const styles = StyleSheet.create({
-	bigBlue: {
-		color: 'blue',
-		fontWeight: 'bold',
-		fontSize: 30,
-	},
-	red: {
-		color: 'red',
-	},
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
+}
+
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
+const TabNavigator = createBottomTabNavigator({
+  Home: HomeScreen,
+  Settings: SettingsScreen,
 });
 
-class Blink extends Component {
-
-	state = {isShowingText: false};
-
-	componentDidMount(){
-		setInterval(()=> (
-			this.setState(previousState => (
-				{isShowingText: !previousState.isShowingText}
-			))
-		), 1000);
-	}
-
-	render(){
-		if(!this.state.isShowingText) {
-			return null;
-		}
-		return (
-			<Text style={styles.bigBlue}>{this.props.text}</Text>
-		);
-	}
-
-}
-
-export default class BlinkApp extends Component {
-	render(){
-		return (
-			<View style={{alignItems:'center', top: 200}}>
-				<Blink text='Blink' />
-				<Blink text='Great' />
-				<Blink text='True' />
-				<Blink text='why?' />
-				<Text style={styles.red}>Red Style</Text>
-			</View>
-		)
-	}
-}
-
-// class Greeting extends Component{
-// 	render(){
-// 		return(
-// 		<View style={{alignItems: 'center'}}>
-// 		  <Text> Hello {this.props.word}! </Text>
-// 		</View>
-// 		);
-// 	}
-// }
-
-// export default class ThreeGreetings extends Component{
-// 	render(){
-// 		return (
-// 		<View style={{alignItems:'center', top: 200}}>
-// 		  <Greeting word='Grace'/>
-// 		  <Greeting word='James'/>
-// 		  <Greeting word='Page' />
-// 		</View>	
-// 		);
-// 	}
-// }
+export default createAppContainer(TabNavigator);

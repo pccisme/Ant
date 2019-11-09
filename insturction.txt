@@ -1,0 +1,8 @@
+Annotation Task
+In this task, you are going to draw a bounding box around animals that appear on a roadway.
+
+Correct Example:
+
+
+Wrong Example:
+not on a roadway
