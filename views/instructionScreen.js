@@ -1,14 +1,7 @@
 import React from 'react';
 import {Alert, Button, StyleSheet, Text, View, Image, Dimensions} from 'react-native';
-import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import { createAppContainer } from 'react-navigation';
-import AnnotationCanvas from '../components/canvas';
-import TaskScreen from "./taskScreen";
-import { createStackNavigator } from 'react-navigation-stack';
 
-// let dimensions = Dimensions.get('window');
-//   let imageHeight = Math.round(dimensions.height / 10 * 3);
-//   let imageWidth = Math.round(dimensions.width / 10 * 3);
+
 export default class InstructionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -161,3 +154,7 @@ const styles = StyleSheet.create({
     marginTop: 48
   },
 });
+
+// let dimensions = Dimensions.get('window');
+//   let imageHeight = Math.round(dimensions.height / 10 * 3);
+//   let imageWidth = Math.round(dimensions.width / 10 * 3);
