@@ -9,51 +9,35 @@ import { createStackNavigator } from 'react-navigation-stack';
 // let dimensions = Dimensions.get('window');
 //   let imageHeight = Math.round(dimensions.height / 10 * 3);
 //   let imageWidth = Math.round(dimensions.width / 10 * 3);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // borderColor: 'orange',
-    // borderWidth: 2,
-  },
-  elementsContainer: {
-    backgroundColor: '#ecf5fd',
-    flex: 1,
-    marginLeft: 24,
-    marginRight: 24,
-    marginBottom: 24,
-  },
-  title: {
-    paddingLeft: 10,
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: 36,
-  },
-  contentText: {
-    color: 'grey',
-    paddingLeft: 10,
-  },
-  image: {
-    width: 160,
-    height: 120,
-  },
-  imageContainer: {
-    paddingLeft: 10,
-    // borderColor: 'green',
-    // borderWidth: 4,
-  },
-  foot: {
-    alignItems: 'stretch',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  headerStyle: {
-    fontSize: 32,
-    textAlign: 'center',
-    fontWeight: '100',
-    marginTop: 48
-  },
-});
+export default class InstructionScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: '', switch1Value: false};
+  }
+  state = {switchValue:false}
+  toggleSwitch = (value) => {
+      //onValueChange of the switch this function will be called
+      this.setState({switchValue: value})
+      //state changes according to switch
+      //which will result in re-render the text
+  }
+  static navigationOptions = {
+    headerRight: () => (
+      <Button
+        onPress={() => Alert.alert('THis should lead you to task later!')}
+        title="Start Task"
+      />
+    ),
+  };
+  render() {
+      return (
+      <View style={styles.container}>
+        <ProjectTitle />
+        <ContentContainer />
+      </View>
+      );
+  }
+}
 
 class ProjectTitle extends React.Component {
   render() {
@@ -133,33 +117,47 @@ class FootButtons extends React.Component {
   }
 }
 
-export default class InstructionScreen extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {text: '', switch1Value: false};
-    }
-    state = {switchValue:false}
-    toggleSwitch = (value) => {
-        //onValueChange of the switch this function will be called
-        this.setState({switchValue: value})
-        //state changes according to switch
-        //which will result in re-render the text
-    }
-    static navigationOptions = {
-      headerRight: () => (
-        <Button
-          onPress={() => Alert.alert('THis should lead you to task later!')}
-          title="Start Task"
-        />
-      ),
-    };
-    
-    render() {
-        return (
-        <View style={styles.container}>
-          <ProjectTitle />
-          <ContentContainer />
-        </View>
-        );
-    }
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // borderColor: 'orange',
+    // borderWidth: 2,
+  },
+  elementsContainer: {
+    backgroundColor: '#ecf5fd',
+    flex: 1,
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 24,
+  },
+  title: {
+    paddingLeft: 10,
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 36,
+  },
+  contentText: {
+    color: 'grey',
+    paddingLeft: 10,
+  },
+  image: {
+    width: 160,
+    height: 120,
+  },
+  imageContainer: {
+    paddingLeft: 10,
+    // borderColor: 'green',
+    // borderWidth: 4,
+  },
+  foot: {
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  headerStyle: {
+    fontSize: 32,
+    textAlign: 'center',
+    fontWeight: '100',
+    marginTop: 48
+  },
+});
