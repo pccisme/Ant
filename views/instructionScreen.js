@@ -1,33 +1,37 @@
 import React from 'react';
-import {Alert, Button, StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import {Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView} from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import TaskScreen from "./taskScreen";
+
+var fullwidth = Dimensions.get('window').width; //full width
+var fullheight = Dimensions.get('window').height; //full height
 
 
-export default class InstructionScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {text: '', switch1Value: false};
-  }
-  state = {switchValue:false}
-  toggleSwitch = (value) => {
-      //onValueChange of the switch this function will be called
-      this.setState({switchValue: value})
-      //state changes according to switch
-      //which will result in re-render the text
-  }
+
+class InstructionScreen extends React.Component {
   static navigationOptions = {
-    headerRight: () => (
-      <Button
-        onPress={() => Alert.alert('THis should lead you to task later!')}
-        title="Start Task"
-      />
-    ),
+    title:'Instruction',
+    // headerRight: () => (
+    //   <Button
+    //     onPress={() => this.props.navigation.navigate('taskScreen')}
+    //     title="Start Task"
+    //   />
+    // ),
   };
+
   render() {
       return (
-      <View style={styles.container}>
-        <ProjectTitle />
-        <ContentContainer />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <ProjectTitle />
+          <ContentContainer />
+          <Button
+            onPress={() => this.props.navigation.navigate('taskScreen')}
+            title="Start Task"
+          />
+        </View>
+      </ScrollView>
       );
   }
 }
@@ -35,7 +39,7 @@ export default class InstructionScreen extends React.Component {
 class ProjectTitle extends React.Component {
   render() {
     return (
-      <Text style={styles.headerStyle}>Annotation Title</Text>
+      <Text style={styles.headerStyle}>Annotate Animals on the Image</Text>
     );
   }
 }
@@ -47,7 +51,7 @@ class ContentContainer extends React.Component {
         <Introductions />
         <Correct />
         <Wrong />
-        <FootButtons />
+        {/* <FootButtons /> */}
       </View>
     );
   }
@@ -56,7 +60,7 @@ class ContentContainer extends React.Component {
 class Introductions extends React.Component {
   render() {
     return (
-      <View style={{flex: 3}}>
+      <View style={{flex: 1}}>
         <Text style={styles.title}>Instructions</Text>
         <Text style={styles.contentText}>Annotation Task In this task, you are going to draw a bounding box around animals that appear on a roadway.</Text>
       </View>
@@ -67,7 +71,7 @@ class Introductions extends React.Component {
 class Correct extends React.Component {
   render() {
     return (
-      <View style={{flex: 10}}>
+      <View style={{flex: 3}}>
         <Text style={styles.title}>Positive Examples</Text>
           <View style={styles.imageContainer}>
             <Text>
@@ -84,7 +88,7 @@ class Correct extends React.Component {
 class Wrong extends React.Component {
   render() {
     return (
-      <View style={{flex: 8}}>
+      <View style={{flex: 3}}>
         <Text style={styles.title}>Negative Examples</Text>
         <View style={styles.imageContainer}>
             <Text>
@@ -110,6 +114,29 @@ class FootButtons extends React.Component {
   }
 }
 
+const NaviStack = createStackNavigator(
+  {
+    taskScreen: {
+      screen:TaskScreen,
+    },
+    instruction: InstructionScreen,
+  },
+  {
+    initialRouteName: 'instruction',
+  }
+);
+
+const NaviContainer = createAppContainer(NaviStack);
+
+export default class App extends React.Component {
+  render() {
+    return (
+        <NaviContainer />
+    )
+  }
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -117,28 +144,27 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
   },
   elementsContainer: {
-    backgroundColor: '#ecf5fd',
+    backgroundColor: '#f7f6f5',
     flex: 1,
-    marginLeft: 24,
-    marginRight: 24,
+    marginLeft: 15,
+    marginRight: 15,
     marginBottom: 24,
+    padding:15,
   },
   title: {
-    paddingLeft: 10,
     color: 'black',
-    fontWeight: 'bold',
-    fontSize: 36,
+    fontSize: 24,
+    paddingTop:10,
+    paddingBottom:10,
   },
   contentText: {
     color: 'grey',
-    paddingLeft: 10,
   },
   image: {
-    width: 160,
+    width: 120,
     height: 120,
   },
   imageContainer: {
-    paddingLeft: 10,
     // borderColor: 'green',
     // borderWidth: 4,
   },
@@ -148,10 +174,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   headerStyle: {
-    fontSize: 32,
+    fontSize: 24,
     textAlign: 'center',
     fontWeight: '100',
-    marginTop: 48
+    marginTop: 30,
+    marginBottom:30
   },
 });
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, View, Button,StyleSheet,Image,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert } from 'react-native';
-import { Dimensions } from "react-native";
+import { Text, View, Button,StyleSheet,Image,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert,Dimensions } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import AnnotationCanvas from '../components/canvas';
 
@@ -19,6 +18,15 @@ function CommentTextInput(props) {
 
 
 export default class TaskScreen extends React.Component {
+    static navigationOptions = {
+      title:'Task',
+      headerRight: () => (
+        <Button
+          onPress={() => alert('Thank you!')}
+          title="Submit"
+        />
+      ),
+    };
     constructor(props) {
       super(props);
       this.state = {text: '', switch1Value: false};
@@ -30,14 +38,7 @@ export default class TaskScreen extends React.Component {
         //state changes according to switch
         //which will result in re-render the text
     }
-    static navigationOptions = {
-      headerRight: () => (
-        <Button
-          onPress={() => alert('Thank you!')}
-          title="Submit"
-        />
-      ),
-    };
+    
 
 
     render() {
@@ -116,3 +117,4 @@ export default class TaskScreen extends React.Component {
 
   //reference: keyboard https://www.freecodecamp.org/news/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580/
   //switch: https://aboutreact.com/react-native-switch/
+  //drawing: https://www.skptricks.com/2019/02/react-native-sketch-canvas-android-or-ios-example.html
