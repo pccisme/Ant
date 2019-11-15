@@ -7,24 +7,22 @@ import TaskScreen from "./taskScreen";
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
 
-
-
-class InstructionScreen extends React.Component {
+export default class InstructionScreen extends React.Component {
   static navigationOptions = {
-    title:'Instruction',
-    // headerRight: () => (
-    //   <Button
-    //     onPress={() => this.props.navigation.navigate('taskScreen')}
-    //     title="Start Task"
-    //   />
-    // ),
+    headerRight: () => (
+      <Button
+        onPress={() => alert('This is a button!')}
+        title="Info"
+        color="#fff"
+      />
+    ),
   };
 
   render() {
       return (
       <ScrollView>
         <View style={styles.container}>
-          <ProjectTitle />
+          <Text style={styles.headerStyle}>Annotate Animals on the Image</Text>
           <ContentContainer />
           <Button
             onPress={() => this.props.navigation.navigate('taskScreen')}
@@ -33,14 +31,6 @@ class InstructionScreen extends React.Component {
         </View>
       </ScrollView>
       );
-  }
-}
-
-class ProjectTitle extends React.Component {
-  render() {
-    return (
-      <Text style={styles.headerStyle}>Annotate Animals on the Image</Text>
-    );
   }
 }
 
@@ -111,28 +101,6 @@ class FootButtons extends React.Component {
         </View>
       </View>
     );
-  }
-}
-
-const NaviStack = createStackNavigator(
-  {
-    taskScreen: {
-      screen:TaskScreen,
-    },
-    instruction: InstructionScreen,
-  },
-  {
-    initialRouteName: 'instruction',
-  }
-);
-
-const NaviContainer = createAppContainer(NaviStack);
-
-export default class App extends React.Component {
-  render() {
-    return (
-        <NaviContainer />
-    )
   }
 }
 

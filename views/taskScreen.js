@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button,StyleSheet,Image,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert,Dimensions } from 'react-native';
 import { createAppContainer } from 'react-navigation';
-import AnnotationCanvas from '../components/canvas';
+import Canvas, {Image as CanvasImage} from 'react-native-canvas';
 
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
@@ -15,7 +15,6 @@ function CommentTextInput(props) {
     />
   );
 }
-
 
 export default class TaskScreen extends React.Component {
     static navigationOptions = {

@@ -8,6 +8,7 @@ var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
 
 import InstructionScreen from "./views/instructionScreen";
+import TaskScreen from "./views/taskScreen";
 
 const DATA = [
 	{
@@ -41,7 +42,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-		<Text style={styles.header}>List</Text>
+		{/* <Text style={styles.header}>List</Text> */}
 		<FlatList
 			data={DATA}
 			renderItem={({ item }) => <Item title={item.title} type={item.type} requester={item.requester} createtime={item.createtime} action={() => this.props.navigation.navigate('instructionScreen')} />}
@@ -59,19 +60,9 @@ class HomeScreen extends React.Component {
 
 const RootStack = createStackNavigator(
 	{
-	  	Home: {
-			screen: HomeScreen,
-			navigationOptions: {
-            	header: null,
-			  }
-		},
-
-	  instructionScreen: {
-			screen: InstructionScreen,
-			navigationOptions: {
-            	header: null,
-			  }
-		},
+	  	Home: HomeScreen,
+	  	instructionScreen: InstructionScreen,
+		taskScreen:TaskScreen,
 	},
 	{
 	  initialRouteName: 'Home',
