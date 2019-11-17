@@ -79,6 +79,7 @@ export default class TaskScreen extends React.Component {
         flex: 1, 
         marginLeft:15,
         marginRight:15,
+        marginTop: 40, //Add this for proper presenting in iOS (iPhone 11).
       },
       description:{
         paddingTop:15,

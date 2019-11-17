@@ -1,24 +1,33 @@
 import React from 'react';
-import { Text, View, Button, FlatList, StyleSheet, TouchableHighlight,Dimensions } from 'react-native';
+import { Text, View, Button, FlatList, StyleSheet, TouchableHighlight, Dimensions } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Constants from 'expo-constants';
+import InstructionScreen from "./views/instructionScreen";
+import IntroSliders from "./views/introSliders";
 
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
 
-import InstructionScreen from "./views/instructionScreen";
-
 const DATA = [
 	{
-	  id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+	  id: 'a1',
 	  title: 'Annotate Animals on the Images',
 	  type: 'Images Annotation',
 	  requester: 'UT lab',
 	  createtime:'2019-12-23',
+	  nextpage: 'instructionScreen',
+	},
+	{
+		id: 'a2',
+		title: 'Force Instruction',
+		type: 'Images Annotation',
+		requester: 'UT lab',
+		createtime:'2019-11-16',
+		nextpage: 'introSliders',
 	},
   ];
-function Item({ title, type, requester, createtime, action}) {
+function Item({ title, type, requester, createtime, nextpage, action}) {
 	return (
 		<TouchableHighlight onPress={action}>
 			<View style={styles.item}>
@@ -44,7 +53,19 @@ class HomeScreen extends React.Component {
 		<Text style={styles.header}>List</Text>
 		<FlatList
 			data={DATA}
-			renderItem={({ item }) => <Item title={item.title} type={item.type} requester={item.requester} createtime={item.createtime} action={() => this.props.navigation.navigate('instructionScreen')} />}
+			renderItem={
+				({ item }) => {
+					return (
+				      <Item title={item.title} 
+				        type={item.type} 
+				        requester={item.requester} 
+				        createtime={item.createtime}
+				        // action={() => this.props.navigation.navigate({item.nextpage})}
+						action={() => this.props.navigation.navigate('introSliders')}				  
+				      />
+					)
+				}
+			}
 			keyExtractor={item => item.id}
       	/>
 		{/* <Button 
@@ -59,13 +80,18 @@ class HomeScreen extends React.Component {
 
 const RootStack = createStackNavigator(
 	{
-	  	Home: {
+	  Home: {
 			screen: HomeScreen,
 			navigationOptions: {
             	header: null,
 			  }
 		},
-
+	  introSliders: {
+			screen: IntroSliders,
+			navigationOptions: {
+            	header: null,
+			  }
+		},
 	  instructionScreen: {
 			screen: InstructionScreen,
 			navigationOptions: {

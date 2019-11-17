@@ -10,16 +10,15 @@ var fullheight = Dimensions.get('window').height; //full height
 
 
 class InstructionScreen extends React.Component {
-  static navigationOptions = {
-    title:'Instruction',
-    // headerRight: () => (
-    //   <Button
-    //     onPress={() => this.props.navigation.navigate('taskScreen')}
-    //     title="Start Task"
-    //   />
-    // ),
-  };
-
+  // static navigationOptions = {
+  //   title:'Instruction',
+  //   headerLeft: () => (
+  //     <Button
+  //       onPress={() => this.props.navigation.goBack()}
+  //       title="Back"
+  //     />
+  //   ),
+  // };
   render() {
       return (
       <ScrollView>
