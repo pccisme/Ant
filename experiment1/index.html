@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#2196f3">
+    <title>Animal Annotation</title>
+    <script type="text/javascript" src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"></script>
+    <script src="https://kit.fontawesome.com/988397d464.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="asset/framework7/css/framework7.bundle.min.css"> -->
+    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div class="phone">
+        <div class="screen">
+            <div id="page1">
+                <!-- Your main view, should have "view-main" class -->
+                <div class="view view-main">
+                    <!-- Initial Page, "data-name" contains page name -->
+                    <div data-name="home" class="page">
+
+                    <!-- Top Navbar -->
+                    <div class="navbar">
+                        <div class="navbar-inner col-12 d-flex flex-row justify-content-center">
+                            <h5 class="title">Image Annotation</h5>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tutorial scrollbox px-2">
+                            <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Instruction</h5>
+                                        <p class="card-text">In this task, you are going to draw a polygon around animals that appear on a roadway.</p>
+                                        <ol>
+                                            <li>click on the image to create the dots and lines to circle the objects</li>
+                                            <li>press <strong>undo</strong> button to delete the previous dot</li>
+                                            <li>please select as close to the border of the object as possible.</li>
+                                            <li>write comment(optional)</li>
+                                            <li>press submit button</li>
+                                          </ol>
+                                        <h6>Correct Images</h6>
+                                        <div class="imagerow d-flex flex-row">
+                                            <a class="img-thumb" href="#ci1" style="background-image: url('../assets/images/tutorial_yes1.jpg');">
+                                                <div class="lightbox-target" id="ci1">
+                                                    <img src="../assets/images/tutorial_yes1.jpg"/>
+                                                    <a class="lightbox-close" href="#"></a>
+                                                </div>
+                                            </a>
+                                            <a class="img-thumb" href="#ci2" style="background-image: url('../assets/images/tutorial_yes2.jpg');">
+                                                <div class="lightbox-target" id="ci2">
+                                                    <img src="../assets/images/tutorial_yes2.jpg"/>
+                                                    <a class="lightbox-close" href="#"></a>
+                                                </div>
+                                            </a>
+                                            <a class="img-thumb" href="#ci3" style="background-image: url('../assets/images/tutorial_yes3.jpg');">
+                                                <div class="lightbox-target" id="ci3">
+                                                    <img src="../assets/images/tutorial_yes3.jpg"/>
+                                                    <a class="lightbox-close" href="#"></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <h6 class="mt-2">Wrong Images</h6>
+                                        <div class="imagerow d-flex flex-row">
+                                            <a class="img-thumb" href="#wi1" style="background-image: url('../assets/images/tutorial_no1.jpg');">
+                                                <div class="lightbox-target" id="wi1">
+                                                    <img src="../assets/images/tutorial_no1.jpg"/>
+                                                    <a class="lightbox-close" href="#"></a>
+                                                </div>
+                                            </a>
+                                            <a class="img-thumb" href="#wi2" style="background-image: url('../assets/images/tutorial_no2.jpg');">
+                                                <div class="lightbox-target" id="wi2">
+                                                    <img src="../assets/images/tutorial_no2.jpg"/>
+                                                    <a class="lightbox-close" href="#"></a>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div> 
+                        <div class="footer mx-2"><button id="startTask" class="btn btn-primary btn-lg btn-block">start</button></div>     
+                    </div>
+
+                </div>
+            </div>
+        
+        </div>
+        <div id="page2" class="hidden">
+            <div class="navbar">
+                <div class="navbar-inner col-12 d-flex flex-row justify-content-between">
+                    <a href="#" id="backBtn">back</a>
+                    <h5 class="title">Image Annotation</h5>
+                    <a href="" >    </a>
+                </div>
+            </div>
+            <div class="container">
+                <form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
+                    <input type="hidden" value="" name="assignmentId" id="assignmentId">
+                    <input type="hidden" value="" name="imageDots" id="imageDots">
+                    <h6 class="">draw a bounding box around animals that appear on a roadway</h6>
+                    <canvas id="myCanvas" width="300px" height="200px"></canvas>
+                    <div class="form-group p-0"><a scr="#" class="btn btn-danger undo" id="undo">Undo</a></div>
+                    <div class="form-group p-0">
+                        <label for="comment">Comment:</label>
+                        <textarea class="form-control" name="comment" cols="80" rows="3"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                                <input type="checkbox" aria-label="Checkbox for following text input">
+                              </div>
+                            </div>
+                            <p class="checkouttxt">This image is not applicable.</p>
+                          </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="submitButton" value="Submit">Submit</button>
+                </form>
+              </div>
+        </div>
+      </div>
+   
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="asset/framework7/js/framework7-lite.bundle.min.js"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+    
+  </body>
+</html>
