@@ -50,7 +50,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-		{/* <Text style={styles.header}>List</Text> */}
+		<Text style={styles.header}>List</Text>
 		<FlatList
 			data={DATA}
 			renderItem={
@@ -93,7 +93,13 @@ const RootStack = createStackNavigator(
             	header: null,
 			  }
 		},
-	{
+		taskScreen: {
+			screen: TaskScreen,
+			navigationOptions: {
+            	header: null,
+			  }
+		},
+
 	  initialRouteName: 'Home',
 	}
   );

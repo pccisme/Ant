@@ -1,36 +1,21 @@
 import React from 'react';
-import {Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView} from 'react-native';
+import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import TaskScreen from "./taskScreen";
 
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
 
-
-
-
-// class InstructionScreen extends React.Component {
-  // static navigationOptions = {
-  //   title:'Instruction',
-  //   headerLeft: () => (
-  //     <Button
-  //       onPress={() => this.props.navigation.goBack()}
-  //       title="Back"
-  //     />
-  //   ),
-  // };
-
 export default class InstructionScreen extends React.Component {
   static navigationOptions = {
-    headerRight: () => (
+    title:'Instruction',
+    headerLeft: () => (
       <Button
-        onPress={() => alert('This is a button!')}
-        title="Info"
-        color="#fff"
+        onPress={() => this.props.navigation.goBack()}
+        title="Back"
       />
     ),
-  };
+};
   render() {
       return (
       <ScrollView>
