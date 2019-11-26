@@ -41,7 +41,6 @@ function Item({ title, type, requester, createtime, nextpage, action}) {
 		</TouchableHighlight>
 	);
 	}
-  
 
 class HomeScreen extends React.Component {
 	static navigationOptions = {
@@ -60,19 +59,14 @@ class HomeScreen extends React.Component {
 				        type={item.type} 
 				        requester={item.requester} 
 				        createtime={item.createtime}
-				        // action={() => this.props.navigation.navigate({item.nextpage})}
-						action={() => this.props.navigation.navigate('introSliders')}				  
+						// action={() => this.props.navigation.navigate('introSliders')}
+						action={() => this.props.navigation.navigate(item.nextpage)}			  
 				      />
 					)
 				}
 			}
 			keyExtractor={item => item.id}
       	/>
-		{/* <Button 
-			title="Start Task"
-			onPress={() => this.props.navigation.navigate('taskScreen')}
-		/> */}
-
       </View>
     );
   }

@@ -1,43 +1,56 @@
 import React, { Component } from 'react';
-
 import { StyleSheet, View, Text, Platform, Dimensions } from 'react-native';
-
 import AppIntroSlider from 'react-native-app-intro-slider';
 import TaskScreen from './taskScreen';
-// import HomeScreen from '../App'; 
-
 var fullwidth = Dimensions.get('window').width;
 
-export default class App extends Component {
 
+const styles = StyleSheet.create({
+    MainContainer: {
+      flex: 1,
+      paddingTop: (Platform.OS) === 'ios' ? 20 : 0,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 20
+    },
+    title: {
+      fontSize: 26,
+      color: '#fff',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginTop: 20,
+    },
+    text: {
+      color: '#fff',
+      fontSize: 20,
+    },
+    image: {
+      width: 200,
+      height: 200,
+      resizeMode: 'contain'
+    },
+    canvasImage:{
+      width:(fullwidth-30), 
+      height:250, 
+    },
+  });
+
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       show_Main_App: false
-
     };
   }
-
   on_Done_all_slides = () => {
     this.setState({ show_Main_App: true });
   };
-
   on_Skip_slides = () => {
     this.setState({ show_Main_App: false }); // We disable the skip button (48)
   };
   render() {
     if (this.state.show_Main_App) {
       return (
-        // <View style={styles.MainContainer}>
-
-        //   <Text style={{ textAlign: 'center', fontSize: 20, color: '#000' }}>
-
-        //     This is your main App screen After App Intro.
-
-        //   </Text>
-
-        // </View>
         <TaskScreen />
       );
     } else {
@@ -52,36 +65,6 @@ export default class App extends Component {
     }
   }
 }
-const styles = StyleSheet.create({
-
-  MainContainer: {
-    flex: 1,
-    paddingTop: (Platform.OS) === 'ios' ? 20 : 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20
-  },
-  title: {
-    fontSize: 26,
-    color: '#fff',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 20,
-  },
-  text: {
-    color: '#fff',
-    fontSize: 20,
-  },
-  image: {
-    width: 200,
-    height: 200,
-    resizeMode: 'contain'
-  },
-  canvasImage:{
-    width:(fullwidth-30), 
-    height:250, 
-  },
-});
 
 const slides = [
   {
