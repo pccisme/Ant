@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Constants from 'expo-constants';
 import InstructionScreen from "./views/instructionScreen";
 import IntroSliders from "./views/introSliders";
+import TaskScreen from "./views/taskScreen";
 
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
@@ -49,7 +50,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-		<Text style={styles.header}>List</Text>
+		{/* <Text style={styles.header}>List</Text> */}
 		<FlatList
 			data={DATA}
 			renderItem={
@@ -92,7 +93,6 @@ const RootStack = createStackNavigator(
             	header: null,
 			  }
 		},
-	},
 	{
 	  initialRouteName: 'Home',
 	}
