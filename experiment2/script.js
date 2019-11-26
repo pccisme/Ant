@@ -26,13 +26,15 @@ document.getElementById("page2nextBtn").addEventListener("click", function(){
         document.getElementById("page2prevBtn").classList.remove("hidden");
     }
 })
-document.getElementById("page2prevBtn").addEventListener("onload", function(){
-    if(document.getElementById("slide2").className == "active"){
-        document.getElementById("page2prevBtn").classList.add("hidden");
-    }
-    
-})
 
+var checkbox = document.getElementById("checkboxOp")
+checkbox.addEventListener("click",function(){
+    if (checkbox.checked ==true){
+        document.getElementById("imgIsValid").value="false"
+    }else{
+        document.getElementById("imgIsValid").value="true"
+    }
+})
 
 
 turkSetAssignmentID();

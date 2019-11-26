@@ -97,9 +97,10 @@
                 </div>
             </div>
             <div class="container">
-                <form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
+                <form name="mturk_form" method="POST" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
                     <input type="hidden" value="" name="assignmentId" id="assignmentId">
                     <input type="hidden" value="" name="imageDots" id="imageDots">
+                    <input type="hidden" value="" name="imgIsValid" id="imgIsValid">
                     <h6 class="">draw a bounding box around animals that appear on a roadway</h6>
                     <canvas id="myCanvas" width="300px" height="200px"></canvas>
                     <div class="form-group p-0"><a scr="#" class="btn btn-danger undo" id="undo">Undo</a></div>
@@ -108,13 +109,13 @@
                         <textarea class="form-control" name="comment" cols="80" rows="3"></textarea>
                     </div>
                     <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                              </div>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                            <input name="checkboxOp" id="checkboxOp" type="checkbox" aria-label="Checkbox for following text input" value="invalidObject">
                             </div>
-                            <p class="checkouttxt">This image is not applicable.</p>
-                          </div>
+                        </div>
+                        <p class="checkouttxt">This image is not applicable.</p>
+                        </div>
                     <button type="submit" class="btn btn-primary btn-block" id="submitButton" value="Submit">Submit</button>
                 </form>
               </div>

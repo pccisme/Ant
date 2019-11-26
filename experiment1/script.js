@@ -6,8 +6,14 @@ document.getElementById("startTask").addEventListener("click", function(){
         document.getElementById("page1").classList.remove("hidden");
     });
   });
-
-
+var checkbox = document.getElementById("checkboxOp")
+checkbox.addEventListener("click",function(){
+    if (checkbox.checked ==true){
+        document.getElementById("imgIsValid").value="false"
+    }else{
+        document.getElementById("imgIsValid").value="true"
+    }
+})
 
 turkSetAssignmentID();
 
