@@ -8,13 +8,13 @@ var fullheight = Dimensions.get('window').height; //full height
 
 export default class InstructionScreen extends React.Component {
   static navigationOptions = {
-    title:'Instruction',
-    headerLeft: () => (
-      <Button
-        onPress={() => this.props.navigation.goBack()}
-        title="Back"
-      />
-    ),
+    title: 'Instruction',
+    // headerLeft: () => (
+    //   <Button
+    //     onPress={() => this.props.navigation.goBack()}
+    //     title="Back"
+    //   />
+    // ),
 };
   render() {
       return (

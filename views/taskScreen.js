@@ -38,8 +38,6 @@ export default class TaskScreen extends React.Component {
         //which will result in re-render the text
     }
     
-
-
     render() {
       return (
         <KeyboardAvoidingView style={styles.container} behavior="padding">

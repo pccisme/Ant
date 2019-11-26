@@ -28,6 +28,7 @@ const DATA = [
 		nextpage: 'introSliders',
 	},
   ];
+  
 function Item({ title, type, requester, createtime, nextpage, action}) {
 	return (
 		<TouchableHighlight onPress={action}>
@@ -45,12 +46,12 @@ function Item({ title, type, requester, createtime, nextpage, action}) {
 
 class HomeScreen extends React.Component {
 	static navigationOptions = {
-		title: 'List',
+		title:"The Task List",
 	};
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-		<Text style={styles.header}>List</Text>
+      <View>
+		<Text style={styles.header}></Text>
 		<FlatList
 			data={DATA}
 			renderItem={
@@ -60,7 +61,6 @@ class HomeScreen extends React.Component {
 				        type={item.type} 
 				        requester={item.requester} 
 				        createtime={item.createtime}
-						// action={() => this.props.navigation.navigate('introSliders')}
 						action={() => this.props.navigation.navigate(item.nextpage)}			  
 				      />
 					)
@@ -77,9 +77,6 @@ const RootStack = createStackNavigator(
 	{
 	  Home: {
 			screen: HomeScreen,
-			navigationOptions: {
-            	header: null,
-			  }
 		},
 	  introSliders: {
 			screen: IntroSliders,
@@ -89,15 +86,9 @@ const RootStack = createStackNavigator(
 		},
 	  instructionScreen: {
 			screen: InstructionScreen,
-			navigationOptions: {
-            	header: null,
-			  }
 		},
 		taskScreen: {
 			screen: TaskScreen,
-			navigationOptions: {
-            	header: null,
-			  }
 		},
 
 	  initialRouteName: 'Home',
