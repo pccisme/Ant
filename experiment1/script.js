@@ -9,9 +9,11 @@ document.getElementById("startTask").addEventListener("click", function(){
 var checkbox = document.getElementById("checkboxOp")
 checkbox.addEventListener("click",function(){
     if (checkbox.checked ==true){
-        document.getElementById("imgIsValid").value="false"
+        document.getElementById("imgIsValid").value="InvalidObject"
+        document.getElementById("checkboxOp").value="InvalidObject"
     }else{
-        document.getElementById("imgIsValid").value="true"
+        document.getElementById("imgIsValid").value="ValidObject"
+        document.getElementById("checkboxOp").value="ValidObject"
     }
 })
 
@@ -30,7 +32,7 @@ imgObj.onload = function(){
 // console.log(image1Value)
 
 // imgObj.src="https://floydesk.com/wp-content/uploads/2019/10/p1.jpg"
-imgObj.src="../assets/images/test1.jpg"
+imgObj.src="images/test1.jpg"
 
 // var imagePath = turkGetParam('image');
 // document.getElementById('myImage').src = imagePath;
