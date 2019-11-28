@@ -11,6 +11,8 @@ import PointScreen from "./views/pointScreen";
 import AccountScreen from "./views/accountScreen";
 import TaskScreen from "./views/taskScreen";
 import SubmitScreen from "./views/submitScreen";
+import DrawingInstructionScreen from "./views/tasktype3instruction"
+import DrawingTask from "./views/drawingTask"
 
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
@@ -34,11 +36,11 @@ const DATA = [
 	},
 	{
 		id: 'a3',
-		title: 'Annotate Animals on the Images',
-		type: 'Images Annotation',
-		requester: 'UT lab',
+		title: 'Scene Drawing',
+		type: 'Drawing',
+		requester: 'Doodle Inc.',
 		createtime:'2019-12-23',
-		nextpage: 'tasktype1',
+		nextpage: 'tasktype3',
 	  },
 	  {
 		id: 'a4',
@@ -165,6 +167,19 @@ class TasksListScreen extends React.Component {
 		headerMode:'none'
 	}
   )
+  const exper3 = createStackNavigator(
+	{
+		start3: {
+			screen: DrawingInstructionScreen,
+		},
+		DrawingTask: DrawingTask,
+		initialRouteName: 'start3',
+	},
+	{
+		mode:'card',
+		headerMode:'none'
+	}
+  )
 
   const RootStack = createStackNavigator(
 	{
@@ -180,6 +195,9 @@ class TasksListScreen extends React.Component {
 		},
 		tasktype2: {
 			screen: exper2,
+		},
+		tasktype3: {
+			screen: exper3,
 		},
 		SubmitScreen: {
 			screen:SubmitScreen,

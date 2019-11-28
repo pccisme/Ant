@@ -940,6 +940,11 @@
     react-native-safe-area-view "^0.14.1"
     react-native-screens "^1.0.0 || ^1.0.0-alpha"
 
+"@terrylinla/react-native-sketch-canvas@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@terrylinla/react-native-sketch-canvas/-/react-native-sketch-canvas-0.8.0.tgz#3d3aa4ce2afb71bac2fbd512889e292d3265b264"
+  integrity sha512-rWLZkvYbbQ2Pje8AyT7+8nunXRNaOjfpJTYUHfUH1EVvRs+Es0rJlqoS1UmQbhKCXIra8xiBBD1jHs10S//mxg==
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -5846,6 +5851,13 @@ react-native-safe-area-view@^0.14.1, react-native-safe-area-view@^0.14.6:
   dependencies:
     debounce "^1.2.0"
 
+react-native-signature-canvas@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-signature-canvas/-/react-native-signature-canvas-1.5.1.tgz#65217b96bdd5c558a45ba4590dd4a5cb776e6b34"
+  integrity sha512-C+9W6RJtPdlqYcQ/BSrXj4ipnxoa6psyIokW8HJr5esABZFWwjsjvpxMLXO2pqhJ4626J0Pesh5p8mJzqQLu9Q==
+  dependencies:
+    react-native-webview "^7.0.1"
+
 react-native-tab-view@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.11.0.tgz#2e57d1f617ccc88c7f452708804f3409f880b700"
@@ -5881,7 +5893,7 @@ react-native-web@^0.11.7:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
 
-react-native-webview@^7.5.2:
+react-native-webview@^7.0.1, react-native-webview@^7.5.2:
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-7.5.2.tgz#9da3006e03636faaa9d05f3abff46cd40bfb80f9"
   integrity sha512-e2ODq2KuTchhATosONNMZIubAzmjWoHg7WK0s1R515PVeKqOc30v6KdJy8IW5/4kw/2aal+Pb7b/F4s1zp6PFQ==

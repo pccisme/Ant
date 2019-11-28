@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Canvas, Image } from 'react-native-canvas';
+import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
 import { Text, View, Button,StyleSheet,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert,Dimensions } from 'react-native';
 var fullwidth = Dimensions.get('window').width; //full width
 var fullheight = Dimensions.get('window').height; //full height
 
  
-export default class Cavas extends Component {
+export default class canvas extends Component {
  
   handleCanvas = (canvas) => {
     const ctx = canvas.getContext('2d');
@@ -21,7 +22,16 @@ export default class Cavas extends Component {
  
   render() {
     return (
-      <Canvas ref={this.handleCanvas}/>
+      <View>
+        <SketchCanvas
+            style={{ flex: 1 }}
+            strokeColor={'red'}
+            strokeWidth={7}
+          />
+      </View>
+      // <Canvas ref={this.handleCanvas}/>
     )
   }
 }
+
+AppRegistry.registerComponent('canvas', () => canvas);

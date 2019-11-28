@@ -16,7 +16,7 @@ function CommentTextInput(props) {
   );
 }
 
-export default class TaskScreen extends React.Component {
+export default class DrawingTask extends React.Component {
     constructor(props) {
       super(props);
       this.state = {text: '', switch1Value: false};
@@ -33,11 +33,29 @@ export default class TaskScreen extends React.Component {
       return (
         <View style={styles.container} behavior="padding">
             <View>
-                <Text style={styles.description}>draw a bounding box around animals that appear on a roadway</Text>
+                <Text style={styles.description}>Draw "house by the river"</Text>
             </View>
             <View style={styles.canvas}>
             </View>
-            <Image style={styles.canvasImage}source={require('../assets/images/test1.jpg')} />
+            <View style={{flex:4}}>
+            <Signature
+              
+              // handle when you click save button
+              onOK={(img) => console.log(img)}
+              // description text for signature
+              descriptionText=""
+              // clear button text
+              clearText="Clear"
+              // save button text
+                confirmText="Save"
+              // String, webview style for overwrite default style, all style: https://github.com/YanYuanFE/react-native-signature-canvas/blob/master/h5/css/signature-pad.css
+              webStyle={`.m-signature-pad--footer
+                .button {
+                  background-color:#fbc02d ;
+                  color: #000;
+                }`}
+            />
+            </View>
             <View style={styles.commentWrapper}>
               <Text style={styles.description}>Comment</Text>
               <TextInput
