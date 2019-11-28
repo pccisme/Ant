@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView } from 'react-native';
+import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView,TouchableHighlight } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -9,12 +9,12 @@ var fullheight = Dimensions.get('window').height; //full height
 export default class InstructionScreen extends React.Component {
   static navigationOptions = {
     title: 'Instruction',
-    // headerLeft: () => (
-    //   <Button
-    //     onPress={() => this.props.navigation.goBack()}
-    //     title="Back"
-    //   />
-    // ),
+    headerLeft: () => (
+      <Button
+        onPress={() => this.props.navigation.goBack()}
+        title="Back"
+      />
+    ),
 };
   render() {
       return (
@@ -22,10 +22,9 @@ export default class InstructionScreen extends React.Component {
         <View style={styles.container}>
           <Text style={styles.headerStyle}>Annotate Animals on the Image</Text>
           <ContentContainer />
-          <Button
-            onPress={() => this.props.navigation.navigate('taskScreen')}
-            title="Start Task"
-          />
+          <TouchableHighlight onPress={() => this.props.navigation.navigate('TaskScreen')}>
+            <View style={styles.cbutton}><Text style={styles.cbuttonText}>Start Task</Text></View>
+          </TouchableHighlight>
         </View>
       </ScrollView>
       );
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'black',
-    fontSize: 24,
+    fontSize: 20,
     paddingTop:10,
     paddingBottom:10,
   },
@@ -127,8 +126,8 @@ const styles = StyleSheet.create({
     color: 'grey',
   },
   image: {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
   },
   imageContainer: {
     // borderColor: 'green',
@@ -140,12 +139,26 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   headerStyle: {
-    fontSize: 24,
+    fontSize: 20,
     textAlign: 'center',
-    fontWeight: '100',
     marginTop: 30,
-    marginBottom:30
+    marginBottom:20
   },
+  cbutton:{
+    flex:1,
+    flexDirection:'row',
+    backgroundColor:'#fbc02d',
+    width:fullwidth-30,
+    padding:10,
+    marginLeft:15,
+    marginRight:15,
+    marginBottom:10,
+    textAlign:'center',
+    justifyContent:'center'
+  },
+  cbuttonText:{
+    fontSize:20,
+  }
 });
 
 // let dimensions = Dimensions.get('window');

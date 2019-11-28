@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button,StyleSheet,Image,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert,Dimensions } from 'react-native';
+import { Text, View, Button,StyleSheet,Image,TextInput,KeyboardAvoidingView,Switch,Platform,AppRegistry,Alert,Dimensions,TouchableHighlight } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import Canvas, {Image as CanvasImage} from 'react-native-canvas';
 
@@ -17,15 +17,6 @@ function CommentTextInput(props) {
 }
 
 export default class TaskScreen extends React.Component {
-    static navigationOptions = {
-      title:'Task',
-      headerRight: () => (
-        <Button
-          onPress={() => alert('Thank you!')}
-          title="Submit"
-        />
-      ),
-    };
     constructor(props) {
       super(props);
       this.state = {text: '', switch1Value: false};
@@ -40,7 +31,7 @@ export default class TaskScreen extends React.Component {
     
     render() {
       return (
-        <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <View style={styles.container} behavior="padding">
             <View>
                 <Text style={styles.description}>draw a bounding box around animals that appear on a roadway</Text>
             </View>
@@ -59,14 +50,15 @@ export default class TaskScreen extends React.Component {
                 <Switch
                   onValueChange = {this.toggleSwitch}
                   value = {this.state.switchValue}/>
-                  <Text style={styles.switchTxt}>No drawable object in this task.</Text>
+                <Text style={styles.switchTxt}>No drawable object in this task.</Text>
               </View>
-              
             </View>
-            {/* <View style={styles.footer}>
-              <Button title="Submit"/>
-            </View> */}
-        </KeyboardAvoidingView>
+            <View style={styles.footer}>
+                <TouchableHighlight onPress={() => this.props.navigation.navigate('SubmitScreen')}>
+                  <View style={styles.cbutton}><Text style={styles.cbuttonText}>Submit</Text></View>
+                </TouchableHighlight>
+              </View>
+        </View>
       );
     }
   }
@@ -76,11 +68,11 @@ export default class TaskScreen extends React.Component {
         flex: 1, 
         marginLeft:15,
         marginRight:15,
-        marginTop: 40, //Add this for proper presenting in iOS (iPhone 11).
+        marginTop: 15, //Add this for proper presenting in iOS (iPhone 11).
       },
       description:{
-        paddingTop:15,
-        fontSize:24,
+        paddingTop:5,
+        fontSize:20,
       },
       canvas:{
       },
@@ -106,10 +98,21 @@ export default class TaskScreen extends React.Component {
         marginLeft:10,
         lineHeight:Platform.OS === 'ios' ? 30 : 20,
       },
+      cbutton:{
+        justifyContent:'center',
+        height:40,
+        padding:10,
+        width:fullwidth-30,
+        flexDirection:'row',
+        backgroundColor:'#fbc02d',
+      },
+      cbuttonText:{
+        fontSize:20,
+      },
       footer:{
         flex: 1,
         justifyContent: 'flex-end',
-        marginBottom: 36
+        marginBottom: 100,
       },
   })
 
