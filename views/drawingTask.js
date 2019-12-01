@@ -41,7 +41,7 @@ export default class DrawingTask extends React.Component {
             <Signature
               
               // handle when you click save button
-              onOK={(() => Alert.alert('save!'))}
+              onOK={(() => {Alert.alert('Save!')})}
               // description text for signature
               descriptionText=""
               // clear button text
