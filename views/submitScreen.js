@@ -20,7 +20,7 @@ export default class SubmitScreen extends React.Component {
         <View style={styles.submittedPage}>
           <Text style={styles.headerStyle}>The task has been submitted.</Text>
           <Text style={styles.headerStyle}>Thank you!</Text>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate('DrawingTask')}>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate('Home')}>
             <View style={styles.cbutton}><Text style={styles.cbuttonText}>Continue PokeMoney!</Text></View>
           </TouchableHighlight>
         </View>

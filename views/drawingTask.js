@@ -41,13 +41,13 @@ export default class DrawingTask extends React.Component {
             <Signature
               
               // handle when you click save button
-              onOK={(img) => console.log(img)}
+              onOK={(() => Alert.alert('save!'))}
               // description text for signature
               descriptionText=""
               // clear button text
               clearText="Clear"
               // save button text
-                confirmText="Save"
+              confirmText="Save"
               // String, webview style for overwrite default style, all style: https://github.com/YanYuanFE/react-native-signature-canvas/blob/master/h5/css/signature-pad.css
               webStyle={`.m-signature-pad--footer
                 .button {
