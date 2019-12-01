@@ -1,9 +1,9 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView } from 'react-native';
+import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView, TouchableHighlight } from 'react-native';
 // import { createAppContainer } from 'react-navigation';
 // import { createStackNavigator } from 'react-navigation-stack';
 
-// var fullwidth = Dimensions.get('window').width; //full width
+var fullwidth = Dimensions.get('window').width; //full width
 // var fullheight = Dimensions.get('window').height; //full height
 
 export default class SubmitScreen extends React.Component {
@@ -16,18 +16,15 @@ export default class SubmitScreen extends React.Component {
 
   render() {
       return (
-      <View style={styles.container}>
-        <View style={styles.sentence}>
-          <Text style={styles.wordTitle}>The task has been submitted!</Text>
-          <Text style={styles.wordTitle}>Thank you.</Text>
+        <ScrollView>
+        <View style={styles.submittedPage}>
+          <Text style={styles.headerStyle}>The task has been submitted.</Text>
+          <Text style={styles.headerStyle}>Thank you!</Text>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate('DrawingTask')}>
+            <View style={styles.cbutton}><Text style={styles.cbuttonText}>Continue PokeMoney!</Text></View>
+          </TouchableHighlight>
         </View>
-          <View style={{flex: 1}}>
-            <Button
-            onPress={() => this.props.navigation.navigate('taskList')}
-            title="Return to Home"
-            />
-          </View>
-        </View>
+      </ScrollView>
       );
   }
 }
@@ -87,7 +84,27 @@ const styles = StyleSheet.create({
   },
   wordTitle: {
     fontSize: 24,
-  }
+  },
+  cbutton:{
+    flex:1,
+    flexDirection:'row',
+    backgroundColor:'#fbc02d',
+    width: fullwidth-30,
+    padding:10,
+    marginLeft:15,
+    marginRight:15,
+    marginBottom:10,
+    textAlign:'center',
+    justifyContent:'center'
+  },
+  cbuttonText:{
+    fontSize:20,
+  },
+  submittedPage: {
+    flex: 1,
+    justifyContent:'center',
+    borderColor: 'red',
+  },
 });
 
 // let dimensions = Dimensions.get('window');
