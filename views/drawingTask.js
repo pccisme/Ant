@@ -33,7 +33,7 @@ export default class DrawingTask extends React.Component {
       return (
         <View style={styles.container} behavior="padding">
             <View>
-                <Text style={styles.description}>Draw "house by the river"</Text>
+                <Text style={styles.description}>Write "LONGHORN" on the screen</Text>
             </View>
             <View style={styles.canvas}>
             </View>
