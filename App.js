@@ -20,44 +20,44 @@ var fullheight = Dimensions.get('window').height; //full height
 const DATA = [
 	{
 	  id: 'a1',
-	  title: 'Annotate Animals on the Images',
+	  title: 'Annotate Animals (single page insu)',
 	  type: 'Images Annotation',
-	  requester: 'UT lab',
-	  createtime:'2019-12-23',
+	//   requester: '19CCV_Team',
+	  createtime:'2019-12-01',
 	  nextpage: 'tasktype1',
 	},
 	{
 		id: 'a2',
-		title: 'Force Instruction',
+		title: 'Annotate Animals (slides insu)',
 		type: 'Images Annotation',
-		requester: 'UT lab',
-		createtime:'2019-11-16',
+		// requester: '19CCV_Team',
+		createtime:'2019-12-02',
 		nextpage: 'tasktype2',
 	},
 	{
 		id: 'a3',
 		title: 'Scene Drawing',
 		type: 'Drawing',
-		requester: 'Doodle Inc.',
-		createtime:'2019-12-23',
+		// requester: '19CCV_Team',
+		createtime:'2019-12-03',
 		nextpage: 'tasktype3',
 	  },
-	  {
-		id: 'a4',
-		title: 'Annotate Animals on the Images',
-		type: 'Images Annotation',
-		requester: 'UT lab',
-		createtime:'2019-12-23',
-		nextpage: 'tasktype1',
-	  },
-	  {
-		id: 'a5',
-		title: 'Annotate Animals on the Images',
-		type: 'Images Annotation',
-		requester: 'UT lab',
-		createtime:'2019-12-23',
-		nextpage: 'tasktype1',
-	  },
+	//   {
+	// 	id: 'a4',
+	// 	title: 'Annotate Animals on the Images',
+	// 	type: 'Images Annotation',
+	// 	requester: 'UT lab',
+	// 	createtime:'2019-12-23',
+	// 	nextpage: 'tasktype1',
+	//   },
+	//   {
+	// 	id: 'a5',
+	// 	title: 'Annotate Animals on the Images',
+	// 	type: 'Images Annotation',
+	// 	requester: 'UT lab',
+	// 	createtime:'2019-12-23',
+	// 	nextpage: 'tasktype1',
+	//   },
   ];
 
   function Item({ title, type, requester, createtime, nextpage, action}) {
@@ -200,7 +200,7 @@ class TasksListScreen extends React.Component {
 			screen: exper3,
 		},
 		SubmitScreen: {
-			screen:SubmitScreen,
+			screen: SubmitScreen,
 			navigationOptions:()=>({
 				headerMode: 'none',
       			headerBackTitleVisible:false,

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Alert, Button, StyleSheet, Text, View, Image, Dimensions,ScrollView } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+// import { createAppContainer } from 'react-navigation';
+// import { createStackNavigator } from 'react-navigation-stack';
 
-var fullwidth = Dimensions.get('window').width; //full width
-var fullheight = Dimensions.get('window').height; //full height
+// var fullwidth = Dimensions.get('window').width; //full width
+// var fullheight = Dimensions.get('window').height; //full height
 
 export default class SubmitScreen extends React.Component {
   static navigationOptions =() => {
@@ -17,11 +17,16 @@ export default class SubmitScreen extends React.Component {
   render() {
       return (
       <View style={styles.container}>
-        <Text>Submitted</Text>
-        <Button
+        <View style={styles.sentence}>
+          <Text style={styles.wordTitle}>The task has been submitted!</Text>
+          <Text style={styles.wordTitle}>Thank you.</Text>
+        </View>
+          <View style={{flex: 1}}>
+            <Button
             onPress={() => this.props.navigation.navigate('taskList')}
-            title="Home"
-          />
+            title="Return to Home"
+            />
+          </View>
         </View>
       );
   }
@@ -75,6 +80,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom:30
   },
+  sentence: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  wordTitle: {
+    fontSize: 24,
+  }
 });
 
 // let dimensions = Dimensions.get('window');
