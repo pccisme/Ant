@@ -51,7 +51,7 @@ export default class introSliders extends Component {
   render() {
     if (this.state.show_Main_App) {
       return (
-        <TaskScreen />
+        <TaskScreen navigation={this.props.navigation}/>
       );
     } else {
       return (
