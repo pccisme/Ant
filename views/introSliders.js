@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
   });
 
-export default class App extends Component {
+export default class introSliders extends Component {
   constructor(props) {
     super(props);
     this.state = {
