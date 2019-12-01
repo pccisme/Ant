@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent:'center',
-    backgroundColor:'#eeeeee',
+    // backgroundColor:'#eeeeee',
     // borderColor: 'orange',
     // borderWidth: 2,
   },
