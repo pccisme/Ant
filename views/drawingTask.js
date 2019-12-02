@@ -19,7 +19,6 @@ function CommentTextInput(props) {
 export default class DrawingTask extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {text: '', switch1Value: false};
     }
     state = {switchValue:false}
     toggleSwitch = (value) => {
@@ -28,7 +27,7 @@ export default class DrawingTask extends React.Component {
         //state changes according to switch
         //which will result in re-render the text
     }
-    
+
     render() {
       return (
         <View style={styles.container} behavior="padding">
